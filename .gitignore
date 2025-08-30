@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+.env
+.env.*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local
+.vscode/
+.idea/
+*.local
+
+# OS
+Thumbs.db
+
+# coverage
+coverage/
+
+# Mac system files
+Icon?
+
+# Optional: lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Optional: test output
+test-output/

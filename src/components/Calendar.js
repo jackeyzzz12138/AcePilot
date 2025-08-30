@@ -26,7 +26,29 @@ const Calendar = ({ habit, currentDate, onDateChange, onMarkDate, onOpenNote }) 
 
   const getDateStatus = (date) => {
     const dateKey = date.toISOString().split('T')[0];
-    return habit.records[dateKey] || null;
+    const status = habit.records[dateKey];
+    
+    // 如果已有明确标记，返回该状态
+    if (status) {
+      return status;
+    }
+    
+    // 如果没有标记，检查是否在习惯开始日期到今天之间
+    const startDate = new Date(habit.startDate);
+    const today = new Date();
+    
+    // 将时间设置为当天开始，避免时间部分的影响
+    const checkDate = new Date(date);
+    checkDate.setHours(0, 0, 0, 0);
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    
+    // 如果日期在开始日期到今天之间（包含），自动标记为成功
+    if (checkDate >= startDate && checkDate <= today) {
+      return 'success';
+    }
+    
+    return null;
   };
 
   const hasNote = (date) => {

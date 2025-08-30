@@ -19,6 +19,10 @@
 
 ## 快速开始
 
+### Vercel一键部署
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/jackeyzzz12138/AcePilot)
+
 ### 方法：手动启动
 ```bash
 # 安装依赖

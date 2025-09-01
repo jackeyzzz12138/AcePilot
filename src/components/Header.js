@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
-import { Plane, Plus, Trash2, Download, Upload } from 'lucide-react';
+import { Plane, Plus, Trash2, Download, Upload, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Header = ({ habits, selectedHabit, onHabitSelect, onAddHabit, onDeleteHabit, onExportData, onImportData }) => {
   const fileInputRef = useRef(null);
+  const { theme, toggleTheme, isDark } = useTheme();
 
   const handleImportClick = () => {
     fileInputRef.current?.click();
@@ -23,6 +25,14 @@ const Header = ({ habits, selectedHabit, onHabitSelect, onAddHabit, onDeleteHabi
           <Plane size={32} />
           <span>王牌机长</span>
         </div>
+        
+        <button 
+          className="theme-toggle"
+          onClick={toggleTheme}
+          title={isDark ? '切换到亮色模式' : '切换到深色模式'}
+        >
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
         
         <div className="habit-selector">
           {habits.length > 0 && (

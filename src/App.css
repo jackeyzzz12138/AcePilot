@@ -1,16 +1,18 @@
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  transition: background 0.3s ease;
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border-color);
   padding: 16px 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .header-content {
@@ -30,7 +32,31 @@
   gap: 12px;
   font-size: 24px;
   font-weight: bold;
-  color: #2196F3;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  background: var(--text-secondary);
+  color: var(--card-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .habit-selector {
@@ -48,11 +74,13 @@
 
 .habit-select {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  background: white;
+  background: var(--card-bg);
+  color: var(--text-primary);
   font-size: 14px;
   min-width: 150px;
+  transition: all 0.3s ease;
 }
 
 .stats-grid {
@@ -63,12 +91,12 @@
 }
 
 .stat-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.2s, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-card:hover {
@@ -94,15 +122,16 @@
 }
 
 .stat-label {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .calendar-container {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .calendar-header {
@@ -115,7 +144,7 @@
 .calendar-title {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .calendar-nav {
@@ -127,22 +156,24 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1px;
-  background: #e0e0e0;
+  background: var(--border-color);
   border-radius: 8px;
   overflow: visible;
 }
 
 .calendar-day-header {
-  background: #f5f5f5;
+  background: var(--bg-secondary);
   padding: 12px 8px;
   text-align: center;
   font-weight: 500;
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .calendar-day {
-  background: white;
+  background: var(--card-bg);
+  color: var(--text-primary);
   padding: 12px 8px;
   text-align: center;
   cursor: pointer;
@@ -152,20 +183,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
 .calendar-day:hover {
-  background: #f0f8ff;
+  background: var(--text-secondary);
+  color: var(--card-bg);
 }
 
 .calendar-day.other-month {
-  color: #ccc;
-  background: #fafafa;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
 }
 
 .calendar-day.today {
-  background: #e3f2fd;
+  background: #2196F3;
+  color: white;
   font-weight: bold;
 }
 
@@ -195,15 +228,16 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: white;
-  border: 1px solid #ddd;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow);
   padding: 8px;
   display: flex;
   gap: 4px;
   z-index: 10;
   margin-top: 4px;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .day-actions-top {

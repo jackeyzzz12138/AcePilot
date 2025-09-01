@@ -175,18 +175,21 @@ code {
 }
 
 .modal {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
   max-width: 500px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
+  box-shadow: 0 8px 32px var(--shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .modal h2 {
   margin-bottom: 16px;
-  color: #333;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .form-group {
@@ -197,7 +200,8 @@ code {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #555;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .flex {
@@ -254,6 +258,17 @@ code {
 
 .mt-4 {
   margin-top: 16px;
+}
+
+.note-tip {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 @media (max-width: 768px) {

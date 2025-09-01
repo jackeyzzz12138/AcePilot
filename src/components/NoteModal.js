@@ -91,12 +91,7 @@ const NoteModal = ({ date, habit, onClose, onSave }) => {
         </form>
 
         {note.trim() && (
-          <div className="mt-4 p-3" style={{ 
-            background: '#f8f9fa', 
-            borderRadius: '6px',
-            fontSize: '14px',
-            color: '#666'
-          }}>
+          <div className="note-tip">
             <strong>提示：</strong> 清空内容并保存可以删除这条笔记
           </div>
         )}
